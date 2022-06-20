@@ -4,11 +4,23 @@ const search        = document.querySelector('.input-value')
 const dropBtn       = document.querySelector('.drop-btn')
 const dropdownItems = document.querySelectorAll('.item')
 const detailsWindow = document.querySelector('.details')
+const loader        = document.querySelector('.lds-roller')
+
+function showLoader(){
+    if(loader.classList.contains('loaded')){
+        loader.classList.remove('loaded')
+    }
+}
+
+function hideLoader(){
+    loader.classList.add('loaded')
+}
 
 async function getCountries(){
     const res  = await fetch(`https://restcountries.com/v2/all`)
     const data = await res.json()
     displayCountries(data)
+    hideLoader()
 }
 
 function displayCountries(data){
@@ -17,7 +29,6 @@ function displayCountries(data){
         const item     = document.createElement('div')
         item.classList.add('grid-item')
         grid.append(item)
-
         item.innerHTML = 
         `
         <div class="flag">
@@ -38,7 +49,6 @@ function displayCountries(data){
             document.body.style.overflow = 'hidden'
            }
         })
-
     })
 }
 
@@ -46,11 +56,13 @@ search.addEventListener('input', (e)=>{
     const {value}       = e.target
     const countryName = document.querySelectorAll('.name')
     countryName.forEach(name => {
+        showLoader()
         if(name.textContent.toLowerCase().includes(value.toLowerCase())){
             name.parentElement.parentElement.style.display = 'block'
         }else{
             name.parentElement.parentElement.style.display = 'none'
         }
+        hideLoader()
     })
 })
 
@@ -65,22 +77,25 @@ dropdownItems.forEach(item => {
         const region = document.querySelectorAll('.region')
 
         region.forEach(reg => {
+            showLoader()
             if(reg.textContent.includes(value) || value === 'All'){
                 reg.parentElement.parentElement.style.display = 'block'
             }else{
                 reg.parentElement.parentElement.style.display = 'none'
             }
+            hideLoader()
         })
     })
 })
 
 function countryDetails(country){
+    showLoader()
     detailsWindow.innerHTML = 
     `
-    <button class="close"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    <button class="close"><i class="fa-solid fa-arrow-left"></i> <span class="text">Back</span></button>
     <div class="row">
-        <div class="row-item" id="flag">
-            <img src="${country.flags.svg}">
+        <div class="row-item">
+            <img src="${country.flags.svg}" id="flag">
         </div>
         <div class="row-item">
             <div class="col">
@@ -104,6 +119,7 @@ function countryDetails(country){
         </div>
     </div>
     `
+    hideLoader()
     const closeButton   = document.querySelector('.close')
 
     closeButton.addEventListener('click', ()=>{
