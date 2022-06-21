@@ -6,16 +6,6 @@ const dropdownItems = document.querySelectorAll('.item')
 const detailsWindow = document.querySelector('.details')
 const loader        = document.querySelector('.lds-roller')
 
-function showLoader(){
-    if(loader.classList.contains('loaded')){
-        loader.classList.remove('loaded')
-    }
-}
-
-function hideLoader(){
-    loader.classList.add('loaded')
-}
-
 async function getCountries(){
     const res  = await fetch(`https://restcountries.com/v2/all`)
     const data = await res.json()
@@ -53,17 +43,17 @@ function displayCountries(data){
 }
 
 search.addEventListener('input', (e)=>{
+    showLoader()
     const {value}       = e.target
     const countryName = document.querySelectorAll('.name')
     countryName.forEach(name => {
-        showLoader()
         if(name.textContent.toLowerCase().includes(value.toLowerCase())){
             name.parentElement.parentElement.style.display = 'block'
         }else{
             name.parentElement.parentElement.style.display = 'none'
         }
-        hideLoader()
     })
+    hideLoader()
 })
 
 dropBtn.addEventListener('click', ()=>{
@@ -118,6 +108,7 @@ function countryDetails(country){
             </div>
         </div>
     </div>
+    <h3 class="author">Challenge by <a href="https://frontendmentor.io" target="_blank">Frontend Mentor</a> Coded by <a href="https://github.com/arturharutyunyan1" target="_blank"> Artur Harutyunyan</a></h3>
     `
     hideLoader()
     const closeButton   = document.querySelector('.close')
@@ -144,5 +135,16 @@ switcher.addEventListener('change', function () {
       window.localStorage.setItem('data-theme', 'light')
     }
 });
+
+function showLoader(){
+    if(loader.classList.contains('loaded')){
+        loader.classList.remove('loaded')
+    }
+}
+
+function hideLoader(){
+    loader.classList.add('loaded')
+}
+
 
 getCountries()

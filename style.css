@@ -145,6 +145,10 @@ label{
 }
 
 .gg-moon{
+    display: block;
+}
+
+.gg-sun{
     display: none;
 }
 
@@ -284,6 +288,7 @@ p span{
     display: none;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background: var(--light-bg);
 }
 
@@ -336,6 +341,14 @@ p span{
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.author{
+    color: var(--light-text);
+}
+
+.author a{
+    color: royalblue;
 }
 
 .active-dropdown li{
@@ -396,6 +409,12 @@ p span{
     .grid{
         grid-template-columns: repeat(1, 0fr);
     }
+    .details{
+        min-height: 100vh;
+    }
+    #flag{
+        width: 100%;
+    }
     .col .row{
         width: 50%;
         flex-direction: column;
@@ -404,7 +423,7 @@ p span{
         margin-left: 0;
     }
     .col .row-item{
-        margin: 15px 0;
+        margin: 5px 0;
     }
     .close{
         width: 30px;
@@ -413,6 +432,9 @@ p span{
     }
     .text{
         display: none;
+    }
+    .author{
+        font-size: 13px;
     }
 
 }
@@ -463,11 +485,15 @@ p span{
 }
 
 [data-theme="dark"] .gg-sun{
-    display: none;
+    display: block;
 }
 
 [data-theme="dark"] .gg-moon{
-    display: block;
+    display: none;
+}
+
+[data-theme="dark"] .author{
+    color: white;
 }
 
 [data-theme="dark"] .lds-roller div:after{
