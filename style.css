@@ -35,6 +35,7 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    transition: 0.3s ease-out;
   }
   .lds-roller div {
     animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
@@ -371,7 +372,7 @@ p span{
         grid-template-columns: repeat(2, 0fr);
     }
     #flag{
-        width: 300px;
+        width: 100%;
     }
     .row{
         flex-direction: column;
@@ -414,6 +415,7 @@ p span{
     }
     #flag{
         width: 100%;
+        margin-bottom: 1px;
     }
     .col .row{
         width: 50%;
@@ -426,6 +428,7 @@ p span{
         margin: 5px 0;
     }
     .close{
+        top: 0;
         width: 30px;
         height: 30px;
         border-radius: 50%;

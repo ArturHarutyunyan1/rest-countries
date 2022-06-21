@@ -1,10 +1,11 @@
-const switcher      = document.querySelector('#switcher')
-const theme         = window.localStorage.getItem('data-theme')
-const search        = document.querySelector('.input-value')
-const dropBtn       = document.querySelector('.drop-btn')
-const dropdownItems = document.querySelectorAll('.item')
-const detailsWindow = document.querySelector('.details')
-const loader        = document.querySelector('.lds-roller')
+const switcher        = document.querySelector('#switcher')
+const theme           = window.localStorage.getItem('data-theme')
+const search          = document.querySelector('.input-value')
+const dropBtn         = document.querySelector('.drop-btn')
+const dropdownItems   = document.querySelectorAll('.item')
+const detailsWindow   = document.querySelector('.details')
+const loader          = document.querySelector('.lds-roller')
+const dropdownContent = document.querySelector('.dropdown-items')
 
 async function getCountries(){
     const res  = await fetch(`https://restcountries.com/v2/all`)
@@ -41,42 +42,6 @@ function displayCountries(data){
         })
     })
 }
-
-search.addEventListener('input', (e)=>{
-    showLoader()
-    const {value}       = e.target
-    const countryName = document.querySelectorAll('.name')
-    countryName.forEach(name => {
-        if(name.textContent.toLowerCase().includes(value.toLowerCase())){
-            name.parentElement.parentElement.style.display = 'block'
-        }else{
-            name.parentElement.parentElement.style.display = 'none'
-        }
-    })
-    hideLoader()
-})
-
-dropBtn.addEventListener('click', ()=>{
-    const dropdownItems = document.querySelector('.dropdown-items')
-    dropdownItems.classList.toggle('active-dropdown')
-})
-
-dropdownItems.forEach(item => {
-    item.addEventListener('click', ()=>{
-        const value  = item.textContent
-        const region = document.querySelectorAll('.region')
-
-        region.forEach(reg => {
-            showLoader()
-            if(reg.textContent.includes(value) || value === 'All'){
-                reg.parentElement.parentElement.style.display = 'block'
-            }else{
-                reg.parentElement.parentElement.style.display = 'none'
-            }
-            hideLoader()
-        })
-    })
-})
 
 function countryDetails(country){
     showLoader()
@@ -119,6 +84,42 @@ function countryDetails(country){
     })
 
 }
+
+search.addEventListener('input', (e)=>{
+    showLoader()
+    const {value}       = e.target
+    const countryName = document.querySelectorAll('.name')
+    countryName.forEach(name => {
+        if(name.textContent.toLowerCase().includes(value.toLowerCase())){
+            name.parentElement.parentElement.style.display = 'block'
+        }else{
+            name.parentElement.parentElement.style.display = 'none'
+        }
+    })
+    hideLoader()
+})
+
+dropBtn.addEventListener('click', ()=>{
+    dropdownContent.classList.toggle('active-dropdown')
+})
+
+dropdownItems.forEach(item => {
+    item.addEventListener('click', ()=>{
+        const value  = item.textContent
+        const region = document.querySelectorAll('.region')
+
+        region.forEach(reg => {
+            showLoader()
+            if(reg.textContent.includes(value) || value === 'All'){
+                reg.parentElement.parentElement.style.display = 'block'
+            }else{
+                reg.parentElement.parentElement.style.display = 'none'
+            }
+            dropdownContent.classList.remove('active-dropdown')
+            hideLoader()
+        })
+    })
+})
 
 if(theme){
     document.documentElement.setAttribute('data-theme', theme)
