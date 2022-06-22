@@ -234,7 +234,7 @@ label{
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(4, 0fr);
+    grid-template-columns: repeat(4, 5fr);
 }
 
 .grid-item{
@@ -290,11 +290,13 @@ p span{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: 0.7s cubic-bezier(1, 0, 0, 1);
     background: var(--light-bg);
 }
 
 .row{
     width: 100%;
+    height: auto;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -358,7 +360,6 @@ p span{
 
 .active{
     display: flex;
-    visibility: visible;
 }
 
 @media (max-width: 1323px){
@@ -372,7 +373,7 @@ p span{
         grid-template-columns: repeat(2, 0fr);
     }
     #flag{
-        width: 100%;
+        width: 500px;
     }
     .row{
         flex-direction: column;
@@ -414,23 +415,24 @@ p span{
         min-height: 100vh;
     }
     #flag{
-        width: 100%;
-        margin-bottom: 1px;
+        width: 250px;
     }
     .col .row{
-        width: 50%;
+        width: 70%;
+        justify-content: unset;
         flex-direction: column;
     }
     .col .row-item:nth-child(1){
         margin-left: 0;
     }
     .col .row-item{
-        margin: 5px 0;
+        width: 100%;
+        margin: 5px auto;
     }
     .close{
         top: 0;
-        width: 30px;
-        height: 30px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
     }
     .text{
