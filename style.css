@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');
-
-*{
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -22,22 +20,40 @@
 
 body{
     background: var(--light-bg);
+    font-weight: 300;
     font-family: 'Nunito Sans', sans-serif;
 }
 
 header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
     width: 100%;
     height: 100px;
     background: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1.5rem;
+    box-shadow: 0 2px 4px #0000000d;
 }
 
-header h1{
+nav{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1{
     font-weight: 700;
-    font-size: 25px;
+}
+
+h1 a{
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--light-text);
 }
 
 label{
@@ -58,8 +74,7 @@ input[type="checkbox"]{
 
 .container{
     width: 95%;
-    margin: auto;
-    padding: 1.5rem 0;
+    margin: 100px auto;
 }
 
 .search-line{
@@ -79,6 +94,7 @@ input[type="checkbox"]{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 2px 4px #0000000d;
 }
 
 .searchValue{
@@ -101,6 +117,7 @@ input[type="checkbox"]{
 .dropdown{
     position: relative;
     display: inline-block;
+    box-shadow: 0 2px 4px #0000000d;
 }
 
 .dropBtn{
@@ -126,6 +143,7 @@ input[type="checkbox"]{
     border-radius: 5px;
     z-index: 1;
     transition: 0.3s ease-out;
+    box-shadow: 0 2px 4px #0000000d;
 }
 
 .dropdown-items ul{
@@ -152,7 +170,7 @@ input[type="checkbox"]{
     border-radius: 5px;
     background: white;
     cursor: pointer;
-    transition: 1s;
+    box-shadow: 0 2px 4px #0000000d;
 }
 
 .flag{
@@ -176,7 +194,7 @@ input[type="checkbox"]{
 }
 
 p span{
-    font-weight: 700;
+    font-weight: 600;
 }
 
 
@@ -192,8 +210,8 @@ p span{
 
 .close{
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 120px;
+    left: 7px;
     width: 200px;
     height: 50px;
     border: none;
@@ -209,7 +227,6 @@ p span{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
 }
 
 .row{
@@ -374,6 +391,9 @@ p span{
     .row{
         flex-direction: column;
     }
+    .content{
+        padding-top: 200px;
+    }
     .col .row{
         flex-direction: row;
     }
@@ -424,7 +444,6 @@ p span{
         margin: 5px auto;
     }
     .close{
-        top: 0;
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -445,6 +464,10 @@ p span{
 
 [data-theme="dark"] header{
     background: var(--dark-blue);
+    color: var(--white);
+}
+
+[data-theme="dark"] h1 a{
     color: var(--white);
 }
 
