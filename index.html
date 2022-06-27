@@ -4,54 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rest Countries</title>
+    <title>REST Countries</title>
     <link rel="shortcut icon" href="img/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href='https://css.gg/sun.css' rel='stylesheet'>
-    <link href='https://css.gg/moon.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
 </head>
 <body style="overflow: visible;">
     <header>
-        <nav>
-            <div class="title">
-                <h1>Where in the world?</h1>
-            </div>
-            <div class="theme-switcher">
-                <input type="checkbox" id="switcher">
-                <label for="switcher">
-                    <div class="inline">
-                        <i class="gg-sun"></i>
-                        <i class="gg-moon"></i>
-                    </div>
-                </label>
-            </div>
-        </nav>
+        <h3>Where in the world?</h3>
+        <div class="inline">
+            <input type="checkbox" id="switcher">
+            <label for="switcher">
+                <i class="fa-solid fa-moon "></i>
+                <span class="dark">Dark Mode</span>
+                <span class="light">Light Mode</span>
+            </label>
+        </div>
     </header>
     <div class="container">
-        <div class="search-bar">
+        <div class="search-line">
             <div class="input-line">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" class="input-value" placeholder="Search for a country...">
+                <input type="text" class="searchValue" placeholder="Search for a country...">
             </div>
             <div class="dropdown">
-                <button class="drop-btn">Filter by Region</button>
+                <button class="dropBtn">Dropdown <span><i class="fa-solid fa-angle-down"></i></span></button>
                 <div class="dropdown-items">
                     <ul>
                         <li class="item">All</li>
                         <li class="item">Africa</li>
                         <li class="item">America</li>
                         <li class="item">Asia</li>
-                        <li class="item">Europe</li>
                         <li class="item">Oceania</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="grid"></div>
-        </div>
-        <div class="details"></div>
-        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div class="details"></div>
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     <script src="script.js"></script>
 </body>
 </html>
