@@ -78,7 +78,6 @@ function showDetails(result){
                 </div>
             </div>
         </div>
-        <h3 class="author">Challenge by <a href="https://frontendmentor.io" target="_blank">Frontend Mentor</a> Coded by <a href="https://github.com/arturharutyunyan1" target="_blank"> Artur Harutyunyan</a></h3>
     </div>
     `
     const closeBtn = document.querySelector('.close')

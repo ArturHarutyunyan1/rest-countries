@@ -253,16 +253,6 @@ p span{
     width: 500px;
 }
 
-.author{
-    position: absolute;
-    bottom: 10px;
-    color: var(--light-text);
-}
-
-.author a{
-    color: royalblue;
-}
-
 .active-dropdown{
     transform: translateY(0);
     opacity: 1;
@@ -442,10 +432,6 @@ p span{
     .text{
         display: none;
     }
-    .author{
-        font-size: 13px;
-    }
-
 }
 
 [data-theme="light"] .light{
@@ -506,10 +492,6 @@ p span{
 
 [data-theme="dark"] .gg-moon{
     display: none;
-}
-
-[data-theme="dark"] .author{
-    color: white;
 }
 
 [data-theme="dark"] .lds-roller div:after{
