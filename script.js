@@ -4,7 +4,7 @@ const theme           = window.localStorage.getItem('data-theme')
 const search          = document.querySelector('.searchValue')
 const dropBtn         = document.querySelector('.dropBtn')
 const dropdownItems   = document.querySelectorAll('.item')
-const detailWindow   = document.querySelector('.details')
+const detailWindow    = document.querySelector('.details')
 const loader          = document.querySelector('.lds-roller')
 const dropdownContent = document.querySelector('.dropdown-items')
 
@@ -28,7 +28,7 @@ function displayCountries(data){
         gridItem.innerHTML = 
         `
         <div class="flag">
-            <img src="${result.flags.png}">
+            <img src="${result.flags.png}" alt="${result.name}">
         </div>
         <div class="desc">
 
@@ -55,7 +55,7 @@ function showDetails(result){
     <button class="close"><i class="fa-solid fa-arrow-left"></i> <span class="text">Back</span></button>
         <div class="row">
             <div class="row-item">
-                <img src="${result.flags.png}" id="flag">
+                <img src="${result.flags.png}" id="flag" alt="${result.name}">
             </div>
             <div class="row-item">
                 <div class="col">
